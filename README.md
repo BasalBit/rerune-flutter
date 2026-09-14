@@ -13,7 +13,7 @@ flutter run -d chrome
 
 Use `flutter run` to choose another available device. Platform builds need their usual Flutter toolchains, such as Xcode for iOS or the Android SDK for Android.
 
-`pubspec.yaml` uses `rerune: ^1.2.0`; the lockfile pins version **1.2.0** from pub.dev. No ReRune source checkout, SDK copies, authoring CLI, or account is needed to run the example. Generated localizations, fonts, and ReRune branding assets are included.
+`pubspec.yaml` uses `rerune: ^1.2.1`; the lockfile pins version **1.2.1** from pub.dev. No ReRune source checkout, SDK copies, authoring CLI, or account is needed to run the example. Generated localizations, fonts, and ReRune branding assets are included.
 
 The app uses the demo project's OTA publish ID embedded in `lib/main.dart`. It checks for published text on launch and caches delivered translations. Bundled text is available when delivery is unavailable. Run `lib/main.dart` from your editor or use `flutter run`; no local configuration is required.
 

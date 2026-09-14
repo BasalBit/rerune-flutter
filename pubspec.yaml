@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
-  rerune: ^1.2.0
+  rerune: ^1.2.1
 
 dev_dependencies:
   build_runner: ^2.4.13
