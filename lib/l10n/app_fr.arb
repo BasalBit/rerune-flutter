@@ -1,0 +1,113 @@
+{
+  "welcome_badge": "Démo de localisation OTA",
+  "welcome_title": "Prenez le temps de lire une histoire.",
+  "welcome_subtitle": "Un peu moins de défilement. Un peu plus d’émerveillement.",
+  "welcome_locale_label": "Langue de lecture",
+  "welcome_locale_value": "Français",
+  "welcome_locale_system_default": "Langue du système",
+  "welcome_last_synced_label": "Dernière synchronisation",
+  "welcome_open_story_cta": "Continuer la lecture",
+  "welcome_refresh_state_idle": "Tirer pour actualiser",
+  "welcome_refresh_state_checking": "Recherche de nouveaux mots…",
+  "welcome_refresh_state_downloading": "Téléchargement des textes...",
+  "welcome_refresh_state_applying": "Application des traductions...",
+  "welcome_refresh_state_success": "Vos histoires ont de nouveaux mots.",
+  "story_title": "L’atlas silencieux",
+  "story_body_primary": "Le matin où la rivière disparut des cartes, Ada emporta un crayon, une poire et la boussole de son grand-père. Dehors, l’eau coulait toujours. Elle l’entendait depuis la fenêtre de la cuisine.",
+  "story_body_secondary": "Elle marcha jusqu’à ce que la route devienne un sentier, puis que le sentier ne soit plus qu’une trace dans l’herbe. Au détour de la rivière se tenait un passeur avec un carnet vide. Il attendait quelqu’un qui sache écouter.",
+  "story_caption": "Traductions en direct",
+  "story_refresh_cta": "Actualiser les textes",
+  "publish_date": "Nous avons publié le {publish_date}",
+  "@publish_date": {
+    "placeholders": {
+      "publish_date": {
+        "type": "String"
+      }
+    }
+  },
+  "plural_sample": "{count, plural, one{Il n’y a qu’une seule clé} many{Il y a beaucoup de clés} other{On ne sait pas combien il y a de clés}}",
+  "@plural_sample": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "refresh_current": "Vos histoires sont à jour.",
+  "refresh_error": "Impossible d’actualiser les textes. Vos histoires sont toujours là. Réessayez.",
+  "nav_library": "Ma bibliothèque",
+  "nav_discover": "Découvrir",
+  "nav_saved": "Enregistrés",
+  "currently_reading": "Lecture en cours",
+  "collection_issue": "VOL. 01",
+  "next_chapter_shelf": "Votre prochaine escapade",
+  "see_all": "Tout voir",
+  "story_by": "Une histoire de {author}",
+  "@story_by": {
+    "placeholders": {
+      "author": {
+        "type": "String"
+      }
+    }
+  },
+  "chapter_progress": "Chapitre {current} sur {total}",
+  "@chapter_progress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "story_finished": "Histoire terminée",
+  "save_story": "Enregistrer l’histoire",
+  "remove_saved": "Retirer des favoris",
+  "discover_title": "Trouvez votre prochain univers.",
+  "discover_subtitle": "De petites histoires. De nouveaux horizons.",
+  "saved_title": "Gardez une part de merveilleux.",
+  "saved_subtitle": "Les belles histoires méritent qu’on y revienne.",
+  "saved_empty_title": "Une étagère rien qu’à vous",
+  "saved_empty_body": "Touchez le marque-page d’une histoire pour la retrouver ici.",
+  "explore_stories": "Explorer les histoires",
+  "filter_all": "Toutes les histoires",
+  "genre_wonder": "Émerveillement",
+  "genre_adventure": "Aventure",
+  "genre_nature": "Nature",
+  "reading_moment": "UN INSTANT ENTRE LES PAGES",
+  "reading_quote": "Certains voyages commencent par une simple page lue dans le calme.",
+  "library_footer": "Trois petits mondes. Prenez votre temps.",
+  "reading_settings": "Paramètres de lecture",
+  "settings_description": "Essayez une autre édition et actualisez les mots de vos histoires.",
+  "translation_variant": "Édition VIP",
+  "variant_save_error": "L’édition a changé, mais ce choix n’a pas pu être enregistré pour la prochaine fois.",
+  "session_note": "Vos favoris et votre progression de lecture sont conservés pendant cette session.",
+  "back_library": "Retour à la bibliothèque",
+  "next_chapter": "Chapitre suivant",
+  "finish_story": "Terminer l’histoire",
+  "read_again": "Relire",
+  "reader_end_title": "Un petit monde que vous avez bien exploré.",
+  "reader_end_body": "Savourez la fin encore un instant. Une autre histoire vous attendra sur votre étagère.",
+  "atlas_description": "Une cartographe suit une rivière qui a disparu de toutes les cartes.",
+  "atlas_chapter_one": "La rivière sans nom",
+  "atlas_chapter_two": "Ce que la carte garde en mémoire",
+  "atlas_body_three": "Le passeur demanda à Ada de dessiner le bruit de l’eau. Elle traça une ligne irrégulière, puis une autre. Bientôt, la page accueillit le pont où sa mère chantait et les eaux peu profondes où elle avait perdu une chaussure.",
+  "atlas_body_four": "Le soir venu, la rivière était revenue dans l’atlas. Pas tout à fait à son ancienne place, mais assez près pour qu’on la retrouve. Ada laissa la dernière page blanche. Il restait des lieux dont elle devait encore se souvenir.",
+  "lantern_title": "La dernière lanterne",
+  "lantern_description": "Une petite lumière traverse une montagne avant les neiges de l’hiver.",
+  "lantern_chapter_one": "Une lumière à la gare",
+  "lantern_chapter_two": "De l’autre côté de la nuit",
+  "lantern_body_one": "Chaque automne, Leo allumait les lanternes le long du chemin de fer de montagne. Cette année, l’une d’elles resta éteinte. Il la trouva à la dernière gare, près d’une lettre adressée simplement à qui viendrait aussi loin.",
+  "lantern_body_two": "La lettre contenait une allumette et le dessin d’une maison au-delà de la crête. Leo remplit la lanterne, boutonna son manteau et quitta le quai. Au-dessus de lui, les premiers flocons passaient entre les étoiles.",
+  "lantern_body_three": "Il atteignit la maison juste avant l’aube. Derrière la fenêtre se trouvait une vieille horloge de gare, arrêtée à sept heures. Une femme ouvrit la porte avec deux tasses de thé. Elle avait gardé la bouilloire au chaud toute la nuit.",
+  "lantern_body_four": "Ils accrochèrent la lanterne dehors ensemble. En bas, dans la vallée, le premier train apparut au détour d’un virage. Son conducteur fit retentir le klaxon, et une centaine de fenêtres reflétèrent la petite lumière. La gare n’était plus le bout de la ligne.",
+  "garden_title": "Un jardin pour demain",
+  "garden_description": "Un toit oublié devient un lieu où tout peut recommencer.",
+  "garden_chapter_one": "La graine dans la poche",
+  "garden_chapter_two": "Une place pour la pluie",
+  "garden_body_one": "Quand June emménagea dans l’immeuble, elle trouva une graine dans la poche d’un manteau emprunté. Personne ne savait ce qu’elle deviendrait. Elle la porta sur le toit dans une tasse bleue ébréchée.",
+  "garden_body_two": "Sur le toit, il y avait trois flaques, une chaise cassée et une vue magnifique sur les nuages. June mit de la terre dans la tasse. Le voisin du dessous apporta une cuillère. C’était le plus petit jardin que l’un comme l’autre ait jamais vu.",
+  "garden_body_three": "Pendant six jours, rien ne se passa. Le septième, une petite pousse verte apparut. Entre-temps, il y avait douze tasses sur le toit, une chaise réparée et quelqu’un qui pensait à arroser chaque matin.",
+  "garden_body_four": "L’été venu, la graine était devenue un tournesol, plus grand que June. Ils ne découvrirent jamais qui l’avait laissée dans le manteau. Quand l’automne arriva, ils remplirent de graines toutes les poches qu’ils purent trouver."
+}

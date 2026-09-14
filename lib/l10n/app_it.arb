@@ -1,0 +1,113 @@
+{
+  "welcome_badge": "Dimostrazione della localizzazione OTA",
+  "welcome_title": "Trova il tempo per una storia.",
+  "welcome_subtitle": "Meno scorrere. Più meraviglia.",
+  "welcome_locale_label": "Lingua di lettura",
+  "welcome_locale_value": "Inglese",
+  "welcome_locale_system_default": "Lingua di sistema",
+  "welcome_last_synced_label": "Ultima sincronizzazione",
+  "welcome_open_story_cta": "Continua a leggere",
+  "welcome_refresh_state_idle": "Scorri verso il basso per aggiornare",
+  "welcome_refresh_state_checking": "Ricerca di nuovi testi…",
+  "welcome_refresh_state_downloading": "Scaricamento dei testi in corso...",
+  "welcome_refresh_state_applying": "Applicazione delle traduzioni...",
+  "welcome_refresh_state_success": "Le tue storie hanno nuove parole.",
+  "story_title": "L'atlante silenzioso",
+  "story_body_primary": "La mattina in cui il fiume scomparve dalle mappe, Ada mise in borsa una matita, una pera e la bussola del nonno. Fuori, l'acqua scorreva ancora. La sentiva dalla cucina.",
+  "story_body_secondary": "Camminò finché il sentiero divenne una traccia nell'erba. Alla curva aspettava un traghettatore con un quaderno vuoto. Cercava qualcuno che sapesse ascoltare.",
+  "story_caption": "Contenuti di traduzione in tempo reale",
+  "story_refresh_cta": "Aggiorna i testi",
+  "publish_date": "abbiamo pubblicato il {publish_date}",
+  "@publish_date": {
+    "placeholders": {
+      "publish_date": {
+        "type": "String"
+      }
+    }
+  },
+  "plural_sample": "{count, plural, one{C’è una sola chiave} many{Ci sono molte chiavi} other{Non si sa quante chiavi ci siano}}",
+  "@plural_sample": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "refresh_current": "Le tue storie sono aggiornate.",
+  "refresh_error": "Impossibile aggiornare. Le tue storie sono ancora qui. Riprova.",
+  "nav_library": "Biblioteca",
+  "nav_discover": "Scopri",
+  "nav_saved": "Salvati",
+  "currently_reading": "In lettura",
+  "collection_issue": "VOL. 01",
+  "next_chapter_shelf": "La tua prossima pausa",
+  "see_all": "Vedi tutto",
+  "story_by": "Una storia di {author}",
+  "@story_by": {
+    "placeholders": {
+      "author": {
+        "type": "String"
+      }
+    }
+  },
+  "chapter_progress": "Capitolo {current} di {total}",
+  "@chapter_progress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "story_finished": "Storia completata",
+  "save_story": "Salva storia",
+  "remove_saved": "Rimuovi dai salvati",
+  "discover_title": "Trova il tuo prossimo mondo.",
+  "discover_subtitle": "Piccole storie. Nuovi luoghi.",
+  "saved_title": "Conserva la meraviglia.",
+  "saved_subtitle": "Le belle storie meritano un ritorno.",
+  "saved_empty_title": "Uno scaffale tutto tuo",
+  "saved_empty_body": "Tocca il segnalibro di una storia per conservarla qui.",
+  "explore_stories": "Esplora le storie",
+  "filter_all": "Tutte le storie",
+  "genre_wonder": "Meraviglia",
+  "genre_adventure": "Avventura",
+  "genre_nature": "Natura",
+  "reading_moment": "UN MOMENTO TRA LE PAGINE",
+  "reading_quote": "Certi viaggi iniziano con una sola pagina silenziosa.",
+  "library_footer": "Tre piccoli mondi. Prenditi il tuo tempo.",
+  "reading_settings": "Impostazioni di lettura",
+  "settings_description": "Prova un'altra edizione e aggiorna i testi delle tue storie.",
+  "translation_variant": "Edizione VIP",
+  "variant_save_error": "L'edizione è cambiata, ma non è stato possibile salvarla.",
+  "session_note": "Segnalibri e progressi restano disponibili durante questa sessione.",
+  "back_library": "Torna alla biblioteca",
+  "next_chapter": "Prossimo capitolo",
+  "finish_story": "Concludi la storia",
+  "read_again": "Leggi di nuovo",
+  "reader_end_title": "Un piccolo mondo, ben esplorato.",
+  "reader_end_body": "Fermati un momento sul finale. Un'altra storia ti aspetta sullo scaffale.",
+  "atlas_description": "Una cartografa segue un fiume scomparso da ogni mappa.",
+  "atlas_chapter_one": "Il fiume senza nome",
+  "atlas_chapter_two": "Ciò che la mappa ricorda",
+  "atlas_body_three": "Il traghettatore chiese ad Ada di disegnare il suono dell'acqua. Tracciò linee storte. Apparvero il ponte dove cantava sua madre e il punto in cui aveva perso una scarpa.",
+  "atlas_body_four": "A sera il fiume tornò nell'atlante. Non proprio nello stesso punto, ma abbastanza vicino. Ada lasciò vuota l'ultima pagina. C'erano ancora luoghi da ricordare.",
+  "lantern_title": "L'ultima lanterna",
+  "lantern_description": "Una piccola luce attraversa una montagna prima della neve.",
+  "lantern_chapter_one": "Una luce alla stazione",
+  "lantern_chapter_two": "L'altro lato della notte",
+  "lantern_body_one": "Ogni autunno Leo accendeva le lanterne della ferrovia di montagna. Quell'anno una rimase spenta. La trovò all'ultima stazione, accanto a una lettera per chi fosse arrivato fin lì.",
+  "lantern_body_two": "La lettera conteneva un fiammifero e il disegno di una casa oltre la cresta. Leo riempì la lanterna, chiuse il cappotto e partì. La prima neve cadeva tra le stelle.",
+  "lantern_body_three": "Arrivò prima dell'alba. Alla finestra c'era un orologio ferroviario fermo alle sette. Una donna aprì con due tazze di tè. Aveva tenuto caldo il bollitore tutta la notte.",
+  "lantern_body_four": "Appesero insieme la lanterna. A valle passò il primo treno. Il macchinista suonò e cento finestre riflessero la luce. La stazione non era più la fine della linea.",
+  "garden_title": "Un giardino per domani",
+  "garden_description": "Un tetto dimenticato diventa un luogo per ricominciare.",
+  "garden_chapter_one": "Il seme in tasca",
+  "garden_chapter_two": "Spazio per la pioggia",
+  "garden_body_one": "Quando si trasferì, June trovò un seme in un cappotto preso in prestito. Nessuno sapeva cosa sarebbe diventato. Lo portò sul tetto in una tazza blu scheggiata.",
+  "garden_body_two": "Sul tetto c'erano tre pozzanghere, una sedia rotta e una vista sulle nuvole. June aggiunse terra alla tazza. Il vicino portò un cucchiaio. Era il giardino più piccolo che conoscessero.",
+  "garden_body_three": "Per sei giorni non accadde nulla. Il settimo spuntò un germoglio verde. Sul tetto c'erano ormai dodici tazze, una sedia riparata e qualcuno che le annaffiava ogni mattina.",
+  "garden_body_four": "In estate il girasole era più alto di June. Non seppero mai chi avesse lasciato il seme nel cappotto. In autunno riempirono di semi tutte le tasche che trovarono."
+}
