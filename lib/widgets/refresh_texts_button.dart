@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rerune/rerune.dart';
-import '../delivery_settings.dart';
 import '../l10n/gen/app_localizations.dart';
 
 class RefreshTextsButton extends StatefulWidget {
@@ -40,9 +39,7 @@ class _RefreshTextsButtonState extends State<RefreshTextsButton> {
     final t = AppLocalizations.of(context)!;
     return OutlinedButton.icon(
       key: const ValueKey('refresh-texts'),
-      onPressed: _refreshing || !DeliverySettings.updatesEnabled(context)
-          ? null
-          : _refresh,
+      onPressed: _refreshing ? null : _refresh,
       icon: _refreshing
           ? const SizedBox.square(
               dimension: 16,

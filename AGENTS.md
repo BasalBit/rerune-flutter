@@ -21,7 +21,8 @@
   platforms. The reading theme does not change the app's branding.
 - Treat a fresh clone with Flutter installed as the consumer baseline. Default
   launch and tests must work without local ReRune source, authoring tools,
-  credentials, or ignored configuration. Live delivery is opt-in. Verify
+  credentials, or ignored configuration. Launch with the approved OTA publish ID
+  embedded in `lib/main.dart`; keep live delivery enabled by default. Verify
   dependency resolution from pub.dev using an empty temporary package cache;
   remove that cache and the clean-source copy after verification.
 - Use only the released public `rerune` package. Regenerate `lib/l10n/gen` with
@@ -35,8 +36,8 @@
   published, verify and reuse them. Only the service CLI manages sync metadata.
   Inspect its current help before synchronization. Never pull over newer local
   catalogs without comparing and preserving them first.
-- Keep authoring credentials and local delivery configuration in ignored files
-  or the process environment. A delivery ID is not an authoring credential.
+- Keep authoring credentials in ignored files or the process environment.
+  The embedded delivery ID is not an authoring credential.
   Record publication revisions and results without credentials or private service
   details. If blocked, finish local work and state the exact publication blocker.
 - Write generated captures to ignored `build/captures`. Run the checks in README

@@ -2,18 +2,14 @@ import 'package:flutter/widgets.dart';
 import 'package:rerune/rerune.dart';
 
 import 'app.dart';
-import 'bundled_cache_store.dart';
-import 'delivery_settings.dart';
 import 'l10n/gen/app_localizations.rerune.g.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  const publishId = String.fromEnvironment('RERUNE_OTA_PUBLISH_ID');
   await ReRune.setup(
-    otaPublishId: publishId.isEmpty ? 'rerune-bundled' : publishId,
-    cacheStore: publishId.isEmpty ? BundledCacheStore() : null,
+    otaPublishId:
+        '03141fc5dde6e5a1f9debf99ee68bbb125dc830412fdfb85af4834d3de341b3b',
     localizations: reRuneAppLocalizationsConfig,
-    updatePolicy: const ReRuneUpdatePolicy(checkOnStart: publishId != ''),
   );
-  runApp(const DeliverySettings(enabled: publishId != '', child: ReRuneApp()));
+  runApp(const ReRuneApp());
 }

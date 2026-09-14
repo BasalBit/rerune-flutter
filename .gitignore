@@ -1,7 +1,6 @@
 .DS_Store
 .idea/
-.vscode/*
-!.vscode/launch.json
+.vscode/
 *.iml
 .work/
 .dart_tool/
@@ -15,7 +14,6 @@ coverage/
 *.log
 .env
 .env.*
-config/*.local.json
 rerune.json
 *.jks
 *.keystore

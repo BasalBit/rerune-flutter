@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rerune/rerune.dart';
-import '../delivery_settings.dart';
 import '../l10n/gen/app_localizations.dart';
 import '../locale_notifier.dart';
 import '../theme/app_theme.dart';
@@ -178,9 +177,7 @@ class _ReadingSettingsState extends State<_ReadingSettings> {
                 ),
                 key: const ValueKey('translation-variant-toggle'),
                 value: ReRune.variant == ReRuneVariant.named('vip'),
-                onChanged: _saving || !DeliverySettings.updatesEnabled(context)
-                    ? null
-                    : _setVariant,
+                onChanged: _saving ? null : _setVariant,
               ),
               const SizedBox(height: 12),
               Semantics(

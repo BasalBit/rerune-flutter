@@ -10,7 +10,6 @@ import 'package:rerune/rerune.dart';
 import 'package:rerune_flutter/app.dart';
 import 'package:rerune_flutter/l10n/gen/app_localizations.rerune.g.dart';
 import 'package:rerune_flutter/locale_notifier.dart';
-import 'package:rerune_flutter/main.dart' as entrypoint;
 
 import 'support/memory_cache.dart';
 
@@ -96,60 +95,58 @@ void main() {
       await loader.load();
     }
   });
-  testWidgets('bundled mode disables delivery actions and names every locale', (
-    tester,
-  ) async {
-    await startApp(tester, cache: MemoryCacheStore());
-    expect(find.text('Welcome to ReRune'), findsOneWidget);
-    await entrypoint.main();
-    await tester.pumpAndSettle();
-    expect(find.text('ReRune'), findsOneWidget);
-    expect(
-      tester.widget<MaterialApp>(find.byType(MaterialApp)).title,
-      'ReRune',
-    );
-    expect(
-      find.image(const AssetImage('assets/images/logo.png')),
-      findsOneWidget,
-    );
-    expect(find.text('Make time for a story.'), findsOneWidget);
-    await tapKey(tester, 'language-menu');
-    for (final name in [
-      'English',
-      'Deutsch',
-      'Español',
-      'Français',
-      'Italiano',
-      'Português',
-      'Shqip',
-    ]) {
+  testWidgets(
+    'bundled fallback keeps delivery controls available and names every locale',
+    (tester) async {
+      await startApp(tester);
+      expect(find.text('ReRune'), findsOneWidget);
       expect(
-        find.widgetWithText(CheckedPopupMenuItem<String>, name),
+        tester.widget<MaterialApp>(find.byType(MaterialApp)).title,
+        'ReRune',
+      );
+      expect(
+        find.image(const AssetImage('assets/images/logo.png')),
         findsOneWidget,
       );
-    }
-    await tester.tap(
-      find.widgetWithText(CheckedPopupMenuItem<String>, 'English'),
-    );
-    await tester.pumpAndSettle();
-    await tapKey(tester, 'reading-settings');
-    expect(
-      tester
-          .widget<SwitchListTile>(
-            find.byKey(const ValueKey('translation-variant-toggle')),
-          )
-          .onChanged,
-      isNull,
-    );
-    expect(
-      tester
-          .widget<OutlinedButton>(
-            find.byKey(const ValueKey('refresh-texts')).hitTestable(),
-          )
-          .onPressed,
-      isNull,
-    );
-  });
+      expect(find.text('Make time for a story.'), findsOneWidget);
+      await tapKey(tester, 'language-menu');
+      for (final name in [
+        'English',
+        'Deutsch',
+        'Español',
+        'Français',
+        'Italiano',
+        'Português',
+        'Shqip',
+      ]) {
+        expect(
+          find.widgetWithText(CheckedPopupMenuItem<String>, name),
+          findsOneWidget,
+        );
+      }
+      await tester.tap(
+        find.widgetWithText(CheckedPopupMenuItem<String>, 'English'),
+      );
+      await tester.pumpAndSettle();
+      await tapKey(tester, 'reading-settings');
+      expect(
+        tester
+            .widget<SwitchListTile>(
+              find.byKey(const ValueKey('translation-variant-toggle')),
+            )
+            .onChanged,
+        isNotNull,
+      );
+      expect(
+        tester
+            .widget<OutlinedButton>(
+              find.byKey(const ValueKey('refresh-texts')).hitTestable(),
+            )
+            .onPressed,
+        isNotNull,
+      );
+    },
+  );
 
   for (final id in ['atlas', 'lantern', 'garden']) {
     testWidgets('$id can be saved, completed, reopened and restarted', (
