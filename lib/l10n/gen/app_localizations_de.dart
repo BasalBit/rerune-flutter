@@ -187,6 +187,16 @@ class AppLocalizationsDe extends AppLocalizations {
       'Die Ausgabe wurde geändert, konnte aber nicht gespeichert werden.';
 
   @override
+  String get staging_mode => 'Staging mode';
+
+  @override
+  String get staging_mode_description =>
+      'Preview draft translations while project staging is enabled.';
+
+  @override
+  String get staging_mode_error => 'Staging mode could not be switched.';
+
+  @override
   String get session_note =>
       'Lesezeichen und Lesefortschritt bleiben während dieser Sitzung erhalten.';
 

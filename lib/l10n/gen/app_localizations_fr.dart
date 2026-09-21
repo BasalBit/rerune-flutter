@@ -191,6 +191,16 @@ class AppLocalizationsFr extends AppLocalizations {
       'L’édition a changé, mais ce choix n’a pas pu être enregistré pour la prochaine fois.';
 
   @override
+  String get staging_mode => 'Staging mode';
+
+  @override
+  String get staging_mode_description =>
+      'Preview draft translations while project staging is enabled.';
+
+  @override
+  String get staging_mode_error => 'Staging mode could not be switched.';
+
+  @override
   String get session_note =>
       'Vos favoris et votre progression de lecture sont conservés pendant cette session.';
 

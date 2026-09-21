@@ -13,13 +13,15 @@ flutter run -d chrome
 
 Use `flutter run` to choose another available device. Platform builds need their usual Flutter toolchains, such as Xcode for iOS or the Android SDK for Android.
 
-`pubspec.yaml` uses `rerune: ^1.2.1`; the lockfile pins version **1.2.1** from pub.dev. No ReRune source checkout, SDK copies, authoring CLI, or account is needed to run the example. Generated localizations, fonts, and ReRune branding assets are included.
+`pubspec.yaml` uses `rerune: ^1.3.0`; the lockfile pins version **1.3.0** from pub.dev. No ReRune source checkout, SDK copies, authoring CLI, or account is needed to run the example. Generated localizations, fonts, and ReRune branding assets are included.
 
 The app uses the demo project's OTA publish ID embedded in `lib/main.dart`. It checks for published text on launch and caches delivered translations. Bundled text is available when delivery is unavailable. Run `lib/main.dart` from your editor or use `flutter run`; no local configuration is required.
 
 ## Try live updates
 
-Use Refresh to fetch the demo project's latest published text. The edition switch selects the `vip` variant and previews the localized headline; keys without VIP translations keep their Main wording. The app persists the selected edition. Language selection, bookmarks, and reading progress last for the app session.
+Use Refresh to fetch the demo project's latest published text. The edition switch selects the `vip` variant and previews the localized headline; keys without VIP translations keep their Main wording. The app persists the selected edition.
+
+The reading settings sheet also has a staging switch. While project staging is enabled in ReRune, it previews draft translations from an isolated cache. Switching it off restores published content. This selection lasts only for the current app session; set `kReruneStagingMode` in `lib/main.dart` to `true` to start the app in staging mode. Language selection, bookmarks, and reading progress also last for the app session.
 
 To test your own publications, replace `otaPublishId` in `lib/main.dart` with your project's delivery ID and restart the app. Delivery IDs are intended for client apps. Authoring API keys are not required by the app and must not be bundled with it.
 

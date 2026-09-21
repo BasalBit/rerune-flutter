@@ -148,6 +148,31 @@ class _ReadingSettingsState extends State<_ReadingSettings> {
     }
   }
 
+  Future<void> _setStaging(bool enabled) async {
+    setState(() => _saving = true);
+    try {
+      final result = await ReRune.setStaging(enabled);
+      if (!mounted) return;
+      if (result.hasErrors) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.staging_mode_error),
+          ),
+        );
+      }
+    } on Object {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.staging_mode_error),
+          ),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _saving = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) => ReRuneBuilder(
     builder: (context) {
@@ -178,6 +203,15 @@ class _ReadingSettingsState extends State<_ReadingSettings> {
                 key: const ValueKey('translation-variant-toggle'),
                 value: ReRune.variant == ReRuneVariant.named('vip'),
                 onChanged: _saving ? null : _setVariant,
+              ),
+              const SizedBox(height: 4),
+              SwitchListTile.adaptive(
+                contentPadding: EdgeInsets.zero,
+                title: Text(t.staging_mode),
+                subtitle: Text(t.staging_mode_description),
+                key: const ValueKey('staging-mode-toggle'),
+                value: ReRune.isStaging,
+                onChanged: _saving ? null : _setStaging,
               ),
               const SizedBox(height: 12),
               Semantics(

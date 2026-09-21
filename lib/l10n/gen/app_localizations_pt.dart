@@ -188,6 +188,16 @@ class AppLocalizationsPt extends AppLocalizations {
       'A edição mudou, mas não foi possível guardá-la para a próxima vez.';
 
   @override
+  String get staging_mode => 'Staging mode';
+
+  @override
+  String get staging_mode_description =>
+      'Preview draft translations while project staging is enabled.';
+
+  @override
+  String get staging_mode_error => 'Staging mode could not be switched.';
+
+  @override
   String get session_note =>
       'Os marcadores e o progresso ficam disponíveis durante esta sessão.';
 

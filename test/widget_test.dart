@@ -242,6 +242,91 @@ void main() {
     },
   );
 
+  testWidgets('staging mode toggle switches the runtime mode', (tester) async {
+    final cache = MemoryCacheStore();
+    await startApp(tester, cache: cache);
+    await tapKey(tester, 'reading-settings');
+    expect(
+      tester
+          .widget<SwitchListTile>(
+            find.byKey(const ValueKey('staging-mode-toggle')),
+          )
+          .value,
+      isFalse,
+    );
+    expect(ReRune.isStaging, isFalse);
+    var stagingManifestRequests = 0;
+    var productionManifestRequests = 0;
+    await http.runWithClient(
+      () async {
+        await tapKey(tester, 'staging-mode-toggle');
+        expect(
+          tester
+              .widget<SwitchListTile>(
+                find.byKey(const ValueKey('staging-mode-toggle')),
+              )
+              .value,
+          isTrue,
+        );
+        expect(ReRune.isStaging, isTrue);
+        await tapKey(tester, 'staging-mode-toggle');
+        expect(
+          tester
+              .widget<SwitchListTile>(
+                find.byKey(const ValueKey('staging-mode-toggle')),
+              )
+              .value,
+          isFalse,
+        );
+        expect(ReRune.isStaging, isFalse);
+      },
+      () => MockClient((request) async {
+        if (request.url.path.endsWith('/manifest')) {
+          if (request.url.queryParameters['staging'] == 'true') {
+            stagingManifestRequests++;
+          } else {
+            productionManifestRequests++;
+          }
+          return http.Response(
+            jsonEncode(cache.cachedManifest!.manifest.toJson()),
+            200,
+          );
+        }
+        if (request.url.queryParameters['staging'] == 'true') {
+          return http.Response('[]', 200);
+        }
+        fail('Production should reuse its matching cached locale.');
+      }),
+    );
+    expect(stagingManifestRequests, greaterThan(0));
+    expect(productionManifestRequests, greaterThan(0));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('staging mode toggle reports synchronization errors', (
+    tester,
+  ) async {
+    await startApp(tester, cache: MemoryCacheStore());
+    await tapKey(tester, 'reading-settings');
+
+    await http.runWithClient(
+      () => tapKey(tester, 'staging-mode-toggle'),
+      () => MockClient((_) async => http.Response('', 503)),
+    );
+
+    expect(
+      tester
+          .widget<SwitchListTile>(
+            find.byKey(const ValueKey('staging-mode-toggle')),
+          )
+          .value,
+      isTrue,
+    );
+    expect(ReRune.isStaging, isTrue);
+    expect(find.text('Staging mode could not be switched.'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets(
     'bookmarks, filters, chapter completion and restart share reading state',
     (tester) async {

@@ -420,6 +420,24 @@ abstract class AppLocalizations {
   /// **'This edition changed, but could not be saved for next time.'**
   String get variant_save_error;
 
+  /// No description provided for @staging_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Staging mode'**
+  String get staging_mode;
+
+  /// No description provided for @staging_mode_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview draft translations while project staging is enabled.'**
+  String get staging_mode_description;
+
+  /// No description provided for @staging_mode_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Staging mode could not be switched.'**
+  String get staging_mode_error;
+
   /// No description provided for @session_note.
   ///
   /// In en, this message translates to:

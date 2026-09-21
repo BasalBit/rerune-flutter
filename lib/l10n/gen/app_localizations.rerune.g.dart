@@ -313,6 +313,24 @@ class _ReRuneAppLocalizationsOverlay extends AppLocalizations {
   }
 
   @override
+  String get staging_mode {
+    final fallback = _base.staging_mode;
+    return ReRune.resolveText(locale: _locale, key: 'staging_mode', fallback: fallback);
+  }
+
+  @override
+  String get staging_mode_description {
+    final fallback = _base.staging_mode_description;
+    return ReRune.resolveText(locale: _locale, key: 'staging_mode_description', fallback: fallback);
+  }
+
+  @override
+  String get staging_mode_error {
+    final fallback = _base.staging_mode_error;
+    return ReRune.resolveText(locale: _locale, key: 'staging_mode_error', fallback: fallback);
+  }
+
+  @override
   String get session_note {
     final fallback = _base.session_note;
     return ReRune.resolveText(locale: _locale, key: 'session_note', fallback: fallback);

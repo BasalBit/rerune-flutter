@@ -190,6 +190,16 @@ class AppLocalizationsSq extends AppLocalizations {
       'Botimi ndryshoi, por kjo zgjedhje nuk u ruajt për herën tjetër.';
 
   @override
+  String get staging_mode => 'Staging mode';
+
+  @override
+  String get staging_mode_description =>
+      'Preview draft translations while project staging is enabled.';
+
+  @override
+  String get staging_mode_error => 'Staging mode could not be switched.';
+
+  @override
   String get session_note =>
       'Shenjuesit dhe ecuria e leximit ruhen gjatë këtij sesioni të aplikacionit.';
 

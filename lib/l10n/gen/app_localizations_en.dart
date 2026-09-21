@@ -187,6 +187,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'This edition changed, but could not be saved for next time.';
 
   @override
+  String get staging_mode => 'Staging mode';
+
+  @override
+  String get staging_mode_description =>
+      'Preview draft translations while project staging is enabled.';
+
+  @override
+  String get staging_mode_error => 'Staging mode could not be switched.';
+
+  @override
   String get session_note =>
       'Bookmarks and reading progress stay with you during this app session.';
 
