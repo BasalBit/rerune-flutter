@@ -13,6 +13,26 @@ import 'package:rerune_flutter/locale_notifier.dart';
 
 import 'support/memory_cache.dart';
 
+MockClientHandler? cdnHandler;
+
+/// Fakes the ReRune CDN for every app started by [startApp]. Requests outside
+/// [withCdn] get the same 400 response as the test binding's real client.
+final cdnClient = MockClient(
+  (request) => (cdnHandler ?? (_) async => http.Response('', 400))(request),
+);
+
+Future<T> withCdn<T>(
+  Future<T> Function() body,
+  MockClientHandler handler,
+) async {
+  cdnHandler = handler;
+  try {
+    return await body();
+  } finally {
+    cdnHandler = null;
+  }
+}
+
 Future<void> startApp(
   WidgetTester tester, {
   MemoryCacheStore? cache,
@@ -27,6 +47,7 @@ Future<void> startApp(
     tester.view.resetDevicePixelRatio();
     tester.platformDispatcher.clearTextScaleFactorTestValue();
     localeNotifier.value = null;
+    cdnHandler = null;
   });
   localeNotifier.value = const Locale('en');
   final store =
@@ -39,6 +60,7 @@ Future<void> startApp(
     cacheStore: store,
     localizations: reRuneAppLocalizationsConfig,
     updatePolicy: const ReRuneUpdatePolicy(checkOnStart: false),
+    testHttpClient: cdnClient,
   );
   await tester.pumpWidget(const ReRuneApp());
   await tester.pumpAndSettle();
@@ -263,7 +285,7 @@ void main() {
     expect(ReRune.isStaging, isFalse);
     var stagingManifestRequests = 0;
     var productionManifestRequests = 0;
-    await http.runWithClient(
+    await withCdn(
       () async {
         await tapKey(tester, 'staging-mode-toggle');
         expect(
@@ -286,7 +308,7 @@ void main() {
         );
         expect(ReRune.isStaging, isFalse);
       },
-      () => MockClient((request) async {
+      (request) async {
         if (isManifestRequest(request)) {
           if (request.url.queryParameters['staging'] == 'true') {
             stagingManifestRequests++;
@@ -302,7 +324,7 @@ void main() {
           return http.Response('[]', 200);
         }
         fail('Production should reuse its matching cached locale.');
-      }),
+      },
     );
     expect(stagingManifestRequests, greaterThan(0));
     expect(productionManifestRequests, greaterThan(0));
@@ -315,9 +337,9 @@ void main() {
     await startApp(tester, cache: MemoryCacheStore());
     await tapKey(tester, 'reading-settings');
 
-    await http.runWithClient(
+    await withCdn(
       () => tapKey(tester, 'staging-mode-toggle'),
-      () => MockClient((_) async => http.Response('', 503)),
+      (_) async => http.Response('', 503),
     );
 
     expect(
@@ -445,11 +467,12 @@ void main() {
       await tapKey(tester, 'reading-settings');
       final pending = Completer<http.Response>();
       var calls = 0;
-      final client = MockClient((_) {
+      Future<http.Response> handler(http.Request _) {
         calls++;
         return pending.future;
-      });
-      await http.runWithClient(() async {
+      }
+
+      await withCdn(() async {
         final refresh = find
             .byKey(const ValueKey('refresh-texts'))
             .hitTestable();
@@ -466,9 +489,9 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(find.text('Your stories are up to date.'), findsOneWidget);
-      }, () => client);
+      }, handler);
       expect(calls, 1);
-      await http.runWithClient(() async {
+      await withCdn(() async {
         await tester.tap(
           find.byKey(const ValueKey('refresh-texts')).hitTestable(),
         );
@@ -479,7 +502,7 @@ void main() {
           ),
           findsOneWidget,
         );
-      }, () => MockClient((_) async => http.Response('', 503)));
+      }, (_) async => http.Response('', 503));
       expect(tester.takeException(), isNull);
     },
   );
@@ -494,12 +517,12 @@ void main() {
     manifest['version'] = 2;
     final locales = manifest['locales'] as Map<String, Object?>;
     (locales['en'] as Map<String, Object?>)['version'] = 2;
-    await http.runWithClient(
+    await withCdn(
       () async {
         await tapKey(tester, 'refresh-texts');
         expect(find.text('Your stories have fresh words.'), findsOneWidget);
       },
-      () => MockClient((request) async {
+      (request) async {
         if (isManifestRequest(request)) {
           return http.Response(jsonEncode(manifest), 200);
         }
@@ -523,7 +546,7 @@ void main() {
           ]),
           200,
         );
-      }),
+      },
     );
     await tester.drag(find.byType(CustomScrollView), const Offset(0, 1800));
     await tester.pumpAndSettle();
