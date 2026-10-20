@@ -44,6 +44,12 @@ Future<void> startApp(
   await tester.pumpAndSettle();
 }
 
+bool isManifestRequest(http.BaseRequest request) {
+  expect(request.headers.containsKey('X-OTA-Publish-Id'), isFalse);
+  return request.url.host == 'cdn.rerune.io' &&
+      request.url.path == '/api/ota/publish-id/manifest.json';
+}
+
 Future<void> tapKey(WidgetTester tester, String key) async {
   final finder = find.byKey(ValueKey(key));
   if (finder.evaluate().isEmpty) {
@@ -281,7 +287,7 @@ void main() {
         expect(ReRune.isStaging, isFalse);
       },
       () => MockClient((request) async {
-        if (request.url.path.endsWith('/manifest')) {
+        if (isManifestRequest(request)) {
           if (request.url.queryParameters['staging'] == 'true') {
             stagingManifestRequests++;
           } else {
@@ -494,9 +500,10 @@ void main() {
         expect(find.text('Your stories have fresh words.'), findsOneWidget);
       },
       () => MockClient((request) async {
-        if (request.url.path.endsWith('/manifest')) {
+        if (isManifestRequest(request)) {
           return http.Response(jsonEncode(manifest), 200);
         }
+        expect(request.url.queryParameters, isEmpty);
         return http.Response(
           jsonEncode([
             {
