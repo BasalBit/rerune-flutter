@@ -21,6 +21,10 @@ final cdnClient = MockClient(
   (request) => (cdnHandler ?? (_) async => http.Response('', 400))(request),
 );
 
+/// The ReRune CDN sends this header. With it, `http.Response` encodes the test
+/// text as UTF-8, as the CDN does.
+const cdnHeaders = {'content-type': 'application/json'};
+
 Future<T> withCdn<T>(
   Future<T> Function() body,
   MockClientHandler handler,
@@ -318,10 +322,11 @@ void main() {
           return http.Response(
             jsonEncode(cache.cachedManifest!.manifest.toJson()),
             200,
+            headers: cdnHeaders,
           );
         }
         if (request.url.queryParameters['staging'] == 'true') {
-          return http.Response('[]', 200);
+          return http.Response('[]', 200, headers: cdnHeaders);
         }
         fail('Production should reuse its matching cached locale.');
       },
@@ -485,6 +490,7 @@ void main() {
           http.Response(
             jsonEncode(cache.cachedManifest!.manifest.toJson()),
             200,
+            headers: cdnHeaders,
           ),
         );
         await tester.pumpAndSettle();
@@ -524,7 +530,7 @@ void main() {
       },
       (request) async {
         if (isManifestRequest(request)) {
-          return http.Response(jsonEncode(manifest), 200);
+          return http.Response(jsonEncode(manifest), 200, headers: cdnHeaders);
         }
         expect(request.url.queryParameters, isEmpty);
         return http.Response(
@@ -545,6 +551,7 @@ void main() {
             },
           ]),
           200,
+          headers: cdnHeaders,
         );
       },
     );
