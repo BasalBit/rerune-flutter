@@ -513,10 +513,10 @@ packages:
     dependency: "direct main"
     description:
       name: rerune
-      sha256: "7d0b7a73d304d2ea67c923046f31c92c630ee574945a7bf28ed12ed0216ceddf"
+      sha256: f2c3d6ad26435aae9373e9e033b3a6af22dc69b3d9573dd6ef8a4217f9894ec3
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.1"
+    version: "1.7.0"
   shared_preferences:
     dependency: transitive
     description:
