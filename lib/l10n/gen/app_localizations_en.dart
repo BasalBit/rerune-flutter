@@ -183,10 +183,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get translation_variant => 'VIP edition';
 
   @override
-  String get variant_save_error =>
-      'This edition changed, but could not be saved for next time.';
-
-  @override
   String get staging_mode => 'Staging mode';
 
   @override

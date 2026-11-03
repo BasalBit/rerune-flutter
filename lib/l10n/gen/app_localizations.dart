@@ -414,12 +414,6 @@ abstract class AppLocalizations {
   /// **'VIP edition'**
   String get translation_variant;
 
-  /// No description provided for @variant_save_error.
-  ///
-  /// In en, this message translates to:
-  /// **'This edition changed, but could not be saved for next time.'**
-  String get variant_save_error;
-
   /// No description provided for @staging_mode.
   ///
   /// In en, this message translates to:

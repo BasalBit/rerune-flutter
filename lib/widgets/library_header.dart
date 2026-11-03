@@ -128,6 +128,9 @@ class _ReadingSettings extends StatefulWidget {
 
 class _ReadingSettingsState extends State<_ReadingSettings> {
   bool _saving = false;
+
+  // ReRune logs a failed save, and the selection still applies to this run,
+  // so there is nothing to tell the reader.
   Future<void> _setVariant(bool enabled) async {
     setState(() => _saving = true);
     try {
@@ -135,33 +138,18 @@ class _ReadingSettingsState extends State<_ReadingSettings> {
         variant: enabled ? ReRuneVariant.named('vip') : ReRuneVariant.main,
         persist: true,
       );
-    } on Object {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context)!.variant_save_error),
-          ),
-        );
-      }
     } finally {
       if (mounted) setState(() => _saving = false);
     }
   }
 
+  // A failed switch arrives in the result, not as an error.
   Future<void> _setStaging(bool enabled) async {
     setState(() => _saving = true);
     try {
       final result = await ReRune.setStaging(enabled);
       if (!mounted) return;
       if (result.hasErrors) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context)!.staging_mode_error),
-          ),
-        );
-      }
-    } on Object {
-      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.staging_mode_error),

@@ -63,7 +63,6 @@ const Map<String, Map<String, ReRuneParameterKind>> _reRuneAppLocalizationsShipp
   'reading_settings': {},
   'settings_description': {},
   'translation_variant': {},
-  'variant_save_error': {},
   'staging_mode': {},
   'staging_mode_description': {},
   'staging_mode_error': {},
@@ -391,12 +390,6 @@ class _ReRuneAppLocalizationsOverlay extends AppLocalizations {
   String get translation_variant {
     final fallback = _base.translation_variant;
     return ReRune.resolveText(locale: _locale, key: 'translation_variant', fallback: fallback);
-  }
-
-  @override
-  String get variant_save_error {
-    final fallback = _base.variant_save_error;
-    return ReRune.resolveText(locale: _locale, key: 'variant_save_error', fallback: fallback);
   }
 
   @override

@@ -186,10 +186,6 @@ class AppLocalizationsSq extends AppLocalizations {
   String get translation_variant => 'Botimi VIP';
 
   @override
-  String get variant_save_error =>
-      'Botimi ndryshoi, por kjo zgjedhje nuk u ruajt për herën tjetër.';
-
-  @override
   String get staging_mode => 'Staging mode';
 
   @override
