@@ -13,7 +13,21 @@ final ReRuneLocalizationsConfig<AppLocalizations> reRuneAppLocalizationsConfig =
   replacingType: AppLocalizations,
   supportedLocales: AppLocalizations.supportedLocales,
   shippedParameters: _reRuneAppLocalizationsShippedParameters,
+  templateLocale: 'en',
+  untranslatedKeys: _reRuneAppLocalizationsUntranslatedKeys,
+  regionalKeys: _reRuneAppLocalizationsRegionalKeys,
 );
+
+const Map<String, Set<String>> _reRuneAppLocalizationsUntranslatedKeys = {
+  'de': {'staging_mode', 'staging_mode_description', 'staging_mode_error'},
+  'es': {'staging_mode', 'staging_mode_description', 'staging_mode_error'},
+  'fr': {'staging_mode', 'staging_mode_description', 'staging_mode_error'},
+  'it': {'staging_mode', 'staging_mode_description', 'staging_mode_error'},
+  'pt': {'staging_mode', 'staging_mode_description', 'staging_mode_error'},
+  'sq': {'staging_mode', 'staging_mode_description', 'staging_mode_error'},
+};
+
+const Map<String, Set<String>> _reRuneAppLocalizationsRegionalKeys = {};
 
 const Map<String, Map<String, ReRuneParameterKind>> _reRuneAppLocalizationsShippedParameters = {
   'welcome_badge': {},
